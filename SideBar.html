@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <style>
+    body {
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+    }
+    .subtitle {
+      width: fit-content;
+      padding: 0px 10px;
+      background-color: #a7f3d0;
+      color: #059669;
+      font-weight: bold;
+      border-radius: 15px;
+    }
+    .container {
+      background-color: #f4f6ff;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    input {
+      border: 1px solid;
+      border-color: #f4f6ff;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 8px;
+    }
+    button {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 8px;
+      border: none;
+      background-color: #059669;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #047857;
+    }
+  </style>
+</head>
+<body>
+  <h2>Icypeas add-on</h2>
+  <div class="subtitle">
+    <p>For Sheets</p>
+  </div>
+  <div class="container">
+    <h3>Hunter.io</h3>
+    <p>Find emails from a prospect list</p>
+    <label for="apiKey">API Key</label>
+    <input type="text" id="apiKey" placeholder="E.g., 12d1ef95...">
+    <button onclick="saveApiKey()">Connect</button>
+  </div>
+
+  <script>
+    function saveApiKey() {
+      var apiKey = document.getElementById('apiKey').value;
+      google.script.run.withSuccessHandler(function() {
+        google.script.host.close();
+      }).saveApiKey(apiKey);
+    }
+  </script>
+</body>
+</html>
